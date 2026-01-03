@@ -14,11 +14,11 @@ package com.google.firebase.dataconnect.generated
 
 
 
-public interface UpdateDonationMutation :
+public interface UpdateCampaignMutation :
     com.google.firebase.dataconnect.generated.GeneratedMutation<
       SasConnectorConnector,
-      UpdateDonationMutation.Data,
-      UpdateDonationMutation.Variables
+      UpdateCampaignMutation.Data,
+      UpdateCampaignMutation.Variables
     >
 {
   
@@ -26,12 +26,13 @@ public interface UpdateDonationMutation :
   public data class Variables(
   
     val id: @kotlinx.serialization.Serializable(with = com.google.firebase.dataconnect.serializers.UUIDSerializer::class) java.util.UUID,
-    val donationDate: com.google.firebase.dataconnect.OptionalVariable<com.google.firebase.dataconnect.LocalDate?>,
-    val donorName: com.google.firebase.dataconnect.OptionalVariable<String?>,
-    val estimatedValue: com.google.firebase.dataconnect.OptionalVariable<Double?>,
-    val donorContact: com.google.firebase.dataconnect.OptionalVariable<String?>,
+    val campaignName: com.google.firebase.dataconnect.OptionalVariable<String?>,
+    val campaignStartDate: com.google.firebase.dataconnect.OptionalVariable<com.google.firebase.dataconnect.LocalDate?>,
+    val campaignEndDate: com.google.firebase.dataconnect.OptionalVariable<com.google.firebase.dataconnect.LocalDate?>,
+    val address: com.google.firebase.dataconnect.OptionalVariable<String?>,
+    val type: com.google.firebase.dataconnect.OptionalVariable<String?>,
     val observations: com.google.firebase.dataconnect.OptionalVariable<String?>,
-    val campaignId: com.google.firebase.dataconnect.OptionalVariable<CampaignKey?>,
+    val userId: com.google.firebase.dataconnect.OptionalVariable<UserKey?>,
     val statusId: com.google.firebase.dataconnect.OptionalVariable<StatusTypeKey?>
   ) {
     
@@ -42,12 +43,13 @@ public interface UpdateDonationMutation :
       @BuilderDsl
       public interface Builder {
         public var id: java.util.UUID
-        public var donationDate: com.google.firebase.dataconnect.LocalDate?
-        public var donorName: String?
-        public var estimatedValue: Double?
-        public var donorContact: String?
+        public var campaignName: String?
+        public var campaignStartDate: com.google.firebase.dataconnect.LocalDate?
+        public var campaignEndDate: com.google.firebase.dataconnect.LocalDate?
+        public var address: String?
+        public var type: String?
         public var observations: String?
-        public var campaignId: CampaignKey?
+        public var userId: UserKey?
         public var statusId: StatusTypeKey?
         
       }
@@ -59,17 +61,19 @@ public interface UpdateDonationMutation :
           block_: Builder.() -> Unit
         ): Variables {
           var id= id
-            var donationDate: com.google.firebase.dataconnect.OptionalVariable<com.google.firebase.dataconnect.LocalDate?> =
+            var campaignName: com.google.firebase.dataconnect.OptionalVariable<String?> =
                 com.google.firebase.dataconnect.OptionalVariable.Undefined
-            var donorName: com.google.firebase.dataconnect.OptionalVariable<String?> =
+            var campaignStartDate: com.google.firebase.dataconnect.OptionalVariable<com.google.firebase.dataconnect.LocalDate?> =
                 com.google.firebase.dataconnect.OptionalVariable.Undefined
-            var estimatedValue: com.google.firebase.dataconnect.OptionalVariable<Double?> =
+            var campaignEndDate: com.google.firebase.dataconnect.OptionalVariable<com.google.firebase.dataconnect.LocalDate?> =
                 com.google.firebase.dataconnect.OptionalVariable.Undefined
-            var donorContact: com.google.firebase.dataconnect.OptionalVariable<String?> =
+            var address: com.google.firebase.dataconnect.OptionalVariable<String?> =
+                com.google.firebase.dataconnect.OptionalVariable.Undefined
+            var type: com.google.firebase.dataconnect.OptionalVariable<String?> =
                 com.google.firebase.dataconnect.OptionalVariable.Undefined
             var observations: com.google.firebase.dataconnect.OptionalVariable<String?> =
                 com.google.firebase.dataconnect.OptionalVariable.Undefined
-            var campaignId: com.google.firebase.dataconnect.OptionalVariable<CampaignKey?> =
+            var userId: com.google.firebase.dataconnect.OptionalVariable<UserKey?> =
                 com.google.firebase.dataconnect.OptionalVariable.Undefined
             var statusId: com.google.firebase.dataconnect.OptionalVariable<StatusTypeKey?> =
                 com.google.firebase.dataconnect.OptionalVariable.Undefined
@@ -80,29 +84,33 @@ public interface UpdateDonationMutation :
               get() = throw UnsupportedOperationException("getting builder values is not supported")
               set(value_) { id = value_ }
               
-            override var donationDate: com.google.firebase.dataconnect.LocalDate?
+            override var campaignName: String?
               get() = throw UnsupportedOperationException("getting builder values is not supported")
-              set(value_) { donationDate = com.google.firebase.dataconnect.OptionalVariable.Value(value_) }
+              set(value_) { campaignName = com.google.firebase.dataconnect.OptionalVariable.Value(value_) }
               
-            override var donorName: String?
+            override var campaignStartDate: com.google.firebase.dataconnect.LocalDate?
               get() = throw UnsupportedOperationException("getting builder values is not supported")
-              set(value_) { donorName = com.google.firebase.dataconnect.OptionalVariable.Value(value_) }
+              set(value_) { campaignStartDate = com.google.firebase.dataconnect.OptionalVariable.Value(value_) }
               
-            override var estimatedValue: Double?
+            override var campaignEndDate: com.google.firebase.dataconnect.LocalDate?
               get() = throw UnsupportedOperationException("getting builder values is not supported")
-              set(value_) { estimatedValue = com.google.firebase.dataconnect.OptionalVariable.Value(value_) }
+              set(value_) { campaignEndDate = com.google.firebase.dataconnect.OptionalVariable.Value(value_) }
               
-            override var donorContact: String?
+            override var address: String?
               get() = throw UnsupportedOperationException("getting builder values is not supported")
-              set(value_) { donorContact = com.google.firebase.dataconnect.OptionalVariable.Value(value_) }
+              set(value_) { address = com.google.firebase.dataconnect.OptionalVariable.Value(value_) }
+              
+            override var type: String?
+              get() = throw UnsupportedOperationException("getting builder values is not supported")
+              set(value_) { type = com.google.firebase.dataconnect.OptionalVariable.Value(value_) }
               
             override var observations: String?
               get() = throw UnsupportedOperationException("getting builder values is not supported")
               set(value_) { observations = com.google.firebase.dataconnect.OptionalVariable.Value(value_) }
               
-            override var campaignId: CampaignKey?
+            override var userId: UserKey?
               get() = throw UnsupportedOperationException("getting builder values is not supported")
-              set(value_) { campaignId = com.google.firebase.dataconnect.OptionalVariable.Value(value_) }
+              set(value_) { userId = com.google.firebase.dataconnect.OptionalVariable.Value(value_) }
               
             override var statusId: StatusTypeKey?
               get() = throw UnsupportedOperationException("getting builder values is not supported")
@@ -112,7 +120,7 @@ public interface UpdateDonationMutation :
           }.apply(block_)
           .let {
             Variables(
-              id=id,donationDate=donationDate,donorName=donorName,estimatedValue=estimatedValue,donorContact=donorContact,observations=observations,campaignId=campaignId,statusId=statusId,
+              id=id,campaignName=campaignName,campaignStartDate=campaignStartDate,campaignEndDate=campaignEndDate,address=address,type=type,observations=observations,userId=userId,statusId=statusId,
             )
           }
         }
@@ -125,7 +133,7 @@ public interface UpdateDonationMutation :
     @kotlinx.serialization.Serializable
   public data class Data(
   
-    val donation_update: DonationKey?
+    val campaign_update: CampaignKey?
   ) {
     
     
@@ -133,7 +141,7 @@ public interface UpdateDonationMutation :
   
 
   public companion object {
-    public val operationName: String = "UpdateDonation"
+    public val operationName: String = "UpdateCampaign"
 
     public val dataDeserializer: kotlinx.serialization.DeserializationStrategy<Data> =
       kotlinx.serialization.serializer()
@@ -143,19 +151,19 @@ public interface UpdateDonationMutation :
   }
 }
 
-public fun UpdateDonationMutation.ref(
+public fun UpdateCampaignMutation.ref(
   
     id: java.util.UUID,
   
-    block_: UpdateDonationMutation.Variables.Builder.() -> Unit = {}
+    block_: UpdateCampaignMutation.Variables.Builder.() -> Unit = {}
   
 ): com.google.firebase.dataconnect.MutationRef<
-    UpdateDonationMutation.Data,
-    UpdateDonationMutation.Variables
+    UpdateCampaignMutation.Data,
+    UpdateCampaignMutation.Variables
   > =
   ref(
     
-      UpdateDonationMutation.Variables.build(
+      UpdateCampaignMutation.Variables.build(
         id=id,
   
     block_
@@ -163,15 +171,15 @@ public fun UpdateDonationMutation.ref(
     
   )
 
-public suspend fun UpdateDonationMutation.execute(
+public suspend fun UpdateCampaignMutation.execute(
   
     id: java.util.UUID,
   
-    block_: UpdateDonationMutation.Variables.Builder.() -> Unit = {}
+    block_: UpdateCampaignMutation.Variables.Builder.() -> Unit = {}
   
   ): com.google.firebase.dataconnect.MutationResult<
-    UpdateDonationMutation.Data,
-    UpdateDonationMutation.Variables
+    UpdateCampaignMutation.Data,
+    UpdateCampaignMutation.Variables
   > =
   ref(
     

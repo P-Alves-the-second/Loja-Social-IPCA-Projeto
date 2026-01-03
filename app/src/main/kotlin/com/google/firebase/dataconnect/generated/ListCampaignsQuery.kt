@@ -17,11 +17,11 @@ import kotlinx.coroutines.flow.filterNotNull as _flow_filterNotNull
 import kotlinx.coroutines.flow.map as _flow_map
 
 
-public interface ListDonationsQuery :
+public interface ListCampaignsQuery :
     com.google.firebase.dataconnect.generated.GeneratedQuery<
       SasConnectorConnector,
-      ListDonationsQuery.Data,
-      ListDonationsQuery.Variables
+      ListCampaignsQuery.Data,
+      ListCampaignsQuery.Variables
     >
 {
   
@@ -81,20 +81,21 @@ public interface ListDonationsQuery :
     @kotlinx.serialization.Serializable
   public data class Data(
   
-    val donations: List<DonationsItem>
+    val campaigns: List<CampaignsItem>
   ) {
     
       
         @kotlinx.serialization.Serializable
-  public data class DonationsItem(
+  public data class CampaignsItem(
   
     val id: @kotlinx.serialization.Serializable(with = com.google.firebase.dataconnect.serializers.UUIDSerializer::class) java.util.UUID,
-    val donationDate: com.google.firebase.dataconnect.LocalDate,
-    val donorName: String,
-    val estimatedValue: Double,
-    val donorContact: String?,
+    val campaignName: String,
+    val campaignStartDate: com.google.firebase.dataconnect.LocalDate,
+    val campaignEndDate: com.google.firebase.dataconnect.LocalDate,
+    val address: String,
+    val type: String,
     val observations: String?,
-    val campaign: Campaign?,
+    val user: User?,
     val status: Status?,
     val createdAt: @kotlinx.serialization.Serializable(with = com.google.firebase.dataconnect.serializers.TimestampSerializer::class) com.google.firebase.Timestamp?,
     val updatedAt: @kotlinx.serialization.Serializable(with = com.google.firebase.dataconnect.serializers.TimestampSerializer::class) com.google.firebase.Timestamp?
@@ -102,12 +103,10 @@ public interface ListDonationsQuery :
     
       
         @kotlinx.serialization.Serializable
-  public data class Campaign(
+  public data class User(
   
     val id: @kotlinx.serialization.Serializable(with = com.google.firebase.dataconnect.serializers.UUIDSerializer::class) java.util.UUID,
-    val campaignName: String,
-    val campaignStartDate: com.google.firebase.dataconnect.LocalDate,
-    val campaignEndDate: com.google.firebase.dataconnect.LocalDate
+    val name: String
   ) {
     
     
@@ -134,7 +133,7 @@ public interface ListDonationsQuery :
   
 
   public companion object {
-    public val operationName: String = "ListDonations"
+    public val operationName: String = "ListCampaigns"
 
     public val dataDeserializer: kotlinx.serialization.DeserializationStrategy<Data> =
       kotlinx.serialization.serializer()
@@ -144,19 +143,19 @@ public interface ListDonationsQuery :
   }
 }
 
-public fun ListDonationsQuery.ref(
+public fun ListCampaignsQuery.ref(
   
     
   
-    block_: ListDonationsQuery.Variables.Builder.() -> Unit = {}
+    block_: ListCampaignsQuery.Variables.Builder.() -> Unit = {}
   
 ): com.google.firebase.dataconnect.QueryRef<
-    ListDonationsQuery.Data,
-    ListDonationsQuery.Variables
+    ListCampaignsQuery.Data,
+    ListCampaignsQuery.Variables
   > =
   ref(
     
-      ListDonationsQuery.Variables.build(
+      ListCampaignsQuery.Variables.build(
         
   
     block_
@@ -164,15 +163,15 @@ public fun ListDonationsQuery.ref(
     
   )
 
-public suspend fun ListDonationsQuery.execute(
+public suspend fun ListCampaignsQuery.execute(
   
     
   
-    block_: ListDonationsQuery.Variables.Builder.() -> Unit = {}
+    block_: ListCampaignsQuery.Variables.Builder.() -> Unit = {}
   
   ): com.google.firebase.dataconnect.QueryResult<
-    ListDonationsQuery.Data,
-    ListDonationsQuery.Variables
+    ListCampaignsQuery.Data,
+    ListCampaignsQuery.Variables
   > =
   ref(
     
@@ -183,13 +182,13 @@ public suspend fun ListDonationsQuery.execute(
   ).execute()
 
 
-  public fun ListDonationsQuery.flow(
+  public fun ListCampaignsQuery.flow(
     
       
   
-    block_: ListDonationsQuery.Variables.Builder.() -> Unit = {}
+    block_: ListCampaignsQuery.Variables.Builder.() -> Unit = {}
     
-    ): kotlinx.coroutines.flow.Flow<ListDonationsQuery.Data> =
+    ): kotlinx.coroutines.flow.Flow<ListCampaignsQuery.Data> =
     ref(
         
           
